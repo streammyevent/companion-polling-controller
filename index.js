@@ -78,10 +78,14 @@ const executeCommands = async (
 			log(
 				`Executing companion button '${action}' because value of ${key} changed to ${value}`
 			);
-			const response = await fetch(actionURL + action, {
-				method: "get",
-			});
-			log("Fetch response status: " + response.status);
+			try {
+				const response = await fetch(actionURL + action, {
+					method: "get",
+				});
+				log("Fetch response status: " + response.status);
+			} catch (error) {
+				log("Error triggering Companion button");
+			}
 		} else {
 			log(
 				`Skipping action ${action} triggered from ${key} - not a valid execute circumstance`
@@ -105,8 +109,14 @@ const fetchLoop = async () => {
 
 	// GET current state
 	// get etc
-	const response = await fetch(telemetryURL);
-	const data = await response.json();
+	let response, data;
+	try {
+		response = await fetch(telemetryURL);
+		data = await response.json();
+	} catch (error) {
+		log("Could not fetch telemetry source");
+		return;
+	}
 	console.log(data);
 	newState = data;
 
