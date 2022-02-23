@@ -1,0 +1,5 @@
+{
+	"telemetryURL": "https://telemetry-api.cloudflareusername.workers.dev/",
+	"actionURL": "http://localhost:8888/press/bank/",
+	"updateInterval": 10000
+}

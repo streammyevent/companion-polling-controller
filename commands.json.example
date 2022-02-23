@@ -1,0 +1,23 @@
+{
+    "power_state": {
+        "executeOnInitialFetch": false,
+        "actions": {
+            "on": "",
+            "reboot": "1/1"
+        }
+    },
+    "recording": {
+				"executeOnInitialFetch": true,
+        "actions": {
+            "on": "1/2",
+            "off": "1/3"
+        }
+    },
+    "scene": {
+				"executeOnInitialFetch": true,
+        "actions": {
+            "1": "1/2",
+            "2": "1/3"
+        }
+    }
+}
