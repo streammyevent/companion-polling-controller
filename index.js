@@ -126,5 +126,5 @@ const fetchLoop = async () => {
 	oldState = newState;
 };
 
-fetchLoop();
+// Start updating at set interval
 setInterval(fetchLoop, updateInterval);
